@@ -146,23 +146,45 @@ namespace RPS
           //I need it to inform the user that they've lost regardless of  their choice
           if (userChoice == "rock")
           {
-            Console.WriteLine("Sorry, you lose.");
+            string[] rockLoses = { "paper", "spock" };
+
+            int rockLosesindex = rnd.Next(rockLoses.Length);
+            computerChoice = rockLoses[rockLosesindex];
+            Console.WriteLine("Sorry, you lose, computer chose: " + computerChoice + ".");
+
           }
           else if (userChoice == "paper")
           {
-            Console.WriteLine("Sorry, you lose.");
+            string[] paperLoses = { "lizard", "scissors" };
+
+            int paperLosesindex = rnd.Next(paperLoses.Length);
+            computerChoice = paperLoses[paperLosesindex];
+            Console.WriteLine("Sorry, you lose, computer chose: " + computerChoice + ".");
+
           }
           else if (userChoice == "scissors")
           {
-            Console.WriteLine("Sorry, you lose");
+            string[] scissorLoses = { "rock", "spock" };
+
+            int scissorLosesindex = rnd.Next(scissorLoses.Length);
+            computerChoice = scissorLoses[scissorLosesindex];
+            Console.WriteLine("Sorry, you lose, computer chose: " + computerChoice + ".");
           }
           else if (userChoice == "lizard")
           {
-            Console.WriteLine("Sorry, you lose");
+            string[] lizardLoses = { "rock", "scissors" };
+
+            int lizardLosesindex = rnd.Next(lizardLoses.Length);
+            computerChoice = lizardLoses[lizardLosesindex];
+            Console.WriteLine("Sorry, you lose, computer chose: " + computerChoice + ".");
           }
           else if (userChoice == "spock")
           {
-            Console.WriteLine("Sorry, you lose");
+            string[] spockLoses = { "lizard", "paper" };
+
+            int spockLosesindex = rnd.Next(spockLoses.Length);
+            computerChoice = spockLoses[spockLosesindex];
+            Console.WriteLine("Sorry, you lose, computer chose: " + computerChoice + ".");
           }
         }
         else if (difficultyType == "easy")
