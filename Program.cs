@@ -7,8 +7,8 @@ namespace RPS
     static void Main(string[] args)
     {
       // As a user, I should see a welcome message.
-      Console.WriteLine("Welcome to Rock Paper Scissors");
-      bool flag = true; //need to figure out WHY this works. Found on stack overflow, but no understanding how the bool flag works
+      Console.WriteLine("Welcome to 'Rock, Paper, Scissors, Lizard, Spock");
+      bool flag = true;
       while (flag)
       {
         //User should be prompted to choose a level: 
@@ -22,18 +22,18 @@ namespace RPS
         if (difficultyType == "normal")
         {
           //  As a user, I should see the options I can pick (i.e., "rock", "paper", "scissor")
-          Console.WriteLine("Please pick from the following: rock, paper, or scissors.");
+          Console.WriteLine("Please pick from the following: rock, paper, scissors, lizard, or spock.");
           var userChoice = Console.ReadLine().ToLower();
           Console.WriteLine("You chose: " + userChoice);
           //Add a validation tool to verify that user put in correct type of data
-          if (userChoice != "rock" && userChoice != "paper" && userChoice != "scissors")
+          if (userChoice != "rock" && userChoice != "paper" && userChoice != "scissors" && userChoice != "lizard" && userChoice != "spock")
           {
-            Console.WriteLine("That is not a valid choice, chose again from rock, paper, or scissors.");
+            Console.WriteLine("That is not a valid choice, chose again from rock, paper, scissors, lizard, or spock.");
             userChoice = Console.ReadLine().ToLower();
           }
           //  The computer should randomly decide one of the options and store as a variable.
           Random rnd = new Random();
-          string[] answer = { "rock", "paper", "scissors" };
+          string[] answer = { "rock", "paper", "scissors, lizard, spock" };
 
           int rpsIndex = rnd.Next(answer.Length);
           var computerChoice = answer[rpsIndex];
@@ -47,7 +47,15 @@ namespace RPS
           {
             Console.WriteLine("Sorry, the computer chose: " + computerChoice + ". You lose.");
           }
+          else if (userChoice == "rock" && computerChoice == "spock")
+          {
+            Console.WriteLine("Sorry, the computer chose: " + computerChoice + ". You lose.");
+          }
           else if (userChoice == "rock" && computerChoice == "scissors")
+          {
+            Console.WriteLine("Congrats you win: you chose " + userChoice + " and the computer chose " + computerChoice + ".");
+          }
+          else if (userChoice == "rock" && computerChoice == "lizard")
           {
             Console.WriteLine("Congrats you win: you chose " + userChoice + " and the computer chose " + computerChoice + ".");
           }
@@ -55,7 +63,15 @@ namespace RPS
           {
             Console.WriteLine("Sorry, the computer chose: " + computerChoice + ". You lose.");
           }
+          else if (userChoice == "paper" && computerChoice == "lizard")
+          {
+            Console.WriteLine("Sorry, the computer chose: " + computerChoice + ". You lose.");
+          }
           else if (userChoice == "paper" && computerChoice == "rock")
+          {
+            Console.WriteLine("Congrats you win: you chose " + userChoice + " and the computer chose " + computerChoice + ".");
+          }
+          else if (userChoice == "paper" && computerChoice == "spock")
           {
             Console.WriteLine("Congrats you win: you chose " + userChoice + " and the computer chose " + computerChoice + ".");
           }
@@ -63,46 +79,100 @@ namespace RPS
           {
             Console.WriteLine("Congrats you win: you chose " + userChoice + " and the computer chose " + computerChoice + ".");
           }
-          else if (userChoice == "scissors" && computerChoice == "rock")
+          else if (userChoice == "scissors" && computerChoice == "lizard")
           {
             Console.WriteLine("Congrats you win: you chose " + userChoice + " and the computer chose " + computerChoice + ".");
-
+          }
+          else if (userChoice == "scissors" && computerChoice == "rock")
+          {
+            Console.WriteLine("Sorry, the computer chose: " + computerChoice + ". You lose.");
+          }
+          else if (userChoice == "scissors" && computerChoice == "spock")
+          {
+            Console.WriteLine("Sorry, the computer chose: " + computerChoice + ". You lose.");
+          }
+          else if (userChoice == "lizard" && computerChoice == "paper")
+          {
+            Console.WriteLine("Congrats you win: you chose " + userChoice + " and the computer chose " + computerChoice + ".");
+          }
+          else if (userChoice == "lizard" && computerChoice == "spock")
+          {
+            Console.WriteLine("Congrats you win: you chose " + userChoice + " and the computer chose " + computerChoice + ".");
+          }
+          else if (userChoice == "lizard" && computerChoice == "scissors")
+          {
+            Console.WriteLine("Sorry, the computer chose: " + computerChoice + ". You lose.");
+          }
+          else if (userChoice == "lizard" && computerChoice == "rock")
+          {
+            Console.WriteLine("Sorry, the computer chose: " + computerChoice + ". You lose.");
+          }
+          else if (userChoice == "spock" && computerChoice == "paper")
+          {
+            Console.WriteLine("Sorry, the computer chose: " + computerChoice + ". You lose.");
+          }
+          else if (userChoice == "spock" && computerChoice == "lizard")
+          {
+            Console.WriteLine("Sorry, the computer chose: " + computerChoice + ". You lose.");
+          }
+          else if (userChoice == "spock" && computerChoice == "rock")
+          {
+            Console.WriteLine("Congrats you win: you chose " + userChoice + " and the computer chose " + computerChoice + ".");
+          }
+          else if (userChoice == "spock" && computerChoice == "scissors")
+          {
+            Console.WriteLine("Congrats you win: you chose " + userChoice + " and the computer chose " + computerChoice + ".");
           }
         }
         else if (difficultyType == "impossible")
         {
           //  As a user, I should see the options I can pick (i.e., "rock", "paper", "scissor")
-          Console.WriteLine("Please pick from the following: rock, paper, or scissors.");
+          Console.WriteLine("Please pick from the following: rock, paper, scissors, lizard, or spock.");
           var userChoice = Console.ReadLine().ToLower();
           Console.WriteLine("You chose: " + userChoice);
           //Add a validation tool to verify that user put in correct type of data
-          if (userChoice != "rock" && userChoice != "paper" && userChoice != "scissors")
+          if (userChoice != "rock" && userChoice != "paper" && userChoice != "scissors" && userChoice != "lizard" && userChoice != "spock")
           {
-            Console.WriteLine("That is not a valid choice, chose again from rock, paper, or scissors.");
+            Console.WriteLine("That is not a valid choice, chose again from rock, paper, scissors, lizard, or spock.");
             userChoice = Console.ReadLine().ToLower();
           }
+          //  The computer should randomly decide one of the options and store as a variable.
+          Random rnd = new Random();
+          string[] answer = { "rock", "paper", "scissors, lizard, spock" };
+
+          int rpsIndex = rnd.Next(answer.Length);
+          var computerChoice = answer[rpsIndex];
+
           //I need it to inform the user that they've lost regardless of  their choice
           if (userChoice == "rock")
           {
-            Console.WriteLine("Sorry, the computer chose paper. You lose.");
+            Console.WriteLine("Sorry, you lose.");
           }
           else if (userChoice == "paper")
           {
-            Console.WriteLine("Sorry, the computer chose scissors. You lose.");
+            Console.WriteLine("Sorry, you lose.");
           }
           else if (userChoice == "scissors")
           {
-            Console.WriteLine("Sorry the computer chose rock. You lose");
+            Console.WriteLine("Sorry, you lose");
+          }
+          else if (userChoice == "lizard")
+          {
+            Console.WriteLine("Sorry, you lose");
+          }
+          else if (userChoice == "spock")
+          {
+            Console.WriteLine("Sorry, you lose");
           }
         }
         else if (difficultyType == "easy")
         {
           //  As a user, I should see the options I can pick (i.e., "rock", "paper", "scissor")
-          Console.WriteLine("Please pick from the following: rock, paper, or scissors.");
+          Console.WriteLine("Please pick from the following: rock, paper, scissors, lizard, or spock.");
           var userChoice = Console.ReadLine().ToLower();
           Console.WriteLine("You chose: " + userChoice);
           //Add a validation tool to verify that user put in correct type of data
-          if (userChoice != "rock" && userChoice != "paper" && userChoice != "scissors")
+          if (userChoice != "rock" && userChoice != "paper" && userChoice != "scissors" && userChoice != "lizard" && userChoice != "spock")
           {
             Console.WriteLine("That is not a valid choice, chose again from rock, paper, or scissors.");
             userChoice = Console.ReadLine().ToLower();
@@ -110,15 +180,24 @@ namespace RPS
           //I need it to inform the user that they've won regardless of  their choice
           if (userChoice == "rock")
           {
-            Console.WriteLine("You win, the computer chose scissors");
+            Console.WriteLine("You win.");
           }
           else if (userChoice == "paper")
           {
-            Console.WriteLine("You win, the computer chose rock.");
+            Console.WriteLine("You win.");
           }
           else if (userChoice == "scissors")
           {
-            Console.WriteLine("You win, the computer chose paper.");
+            Console.WriteLine("You win.");
+          }
+          else if (userChoice == "lizard")
+          {
+            Console.WriteLine("You win.");
+          }
+          else if (userChoice == "spock")
+          {
+            Console.WriteLine("You win.");
+
           }
         }
         Console.WriteLine("Play again? ('yes' or 'no')");
