@@ -6,11 +6,11 @@ namespace RPS
   {
     static void Main(string[] args)
     {
-      // As a user, I should see a welcome message.
-      Console.WriteLine("Welcome to 'Rock, Paper, Scissors, Lizard, Spock");
       bool flag = true;
       while (flag)
       {
+        // As a user, I should see a welcome message.
+        Console.WriteLine("Welcome to 'Rock, Paper, Scissors, Lizard, Spock");
         //User should be prompted to choose a level: 
         Console.WriteLine("Please choose a difficulty: normal, impossible, and easy.");
         var difficultyType = Console.ReadLine().ToLower();
@@ -196,30 +196,58 @@ namespace RPS
           //Add a validation tool to verify that user put in correct type of data
           if (userChoice != "rock" && userChoice != "paper" && userChoice != "scissors" && userChoice != "lizard" && userChoice != "spock")
           {
-            Console.WriteLine("That is not a valid choice, chose again from rock, paper, or scissors.");
+            Console.WriteLine("That is not a valid choice, chose again from rock, paper, scissors, lizard, or spock.");
             userChoice = Console.ReadLine().ToLower();
           }
-          //I need it to inform the user that they've won regardless of  their choice
+          //  The computer should randomly decide one of the options and store as a variable.
+          Random rnd = new Random();
+          string[] answer = { "rock", "paper", "scissors, lizard, spock" };
+
+          int rpsIndex = rnd.Next(answer.Length);
+          var computerChoice = answer[rpsIndex];
+
+          //I need it to inform the user that they've lost regardless of  their choice
           if (userChoice == "rock")
           {
-            Console.WriteLine("You win.");
+            string[] rockWins = { "scissors", "lizard" };
+
+            int rockWinsindex = rnd.Next(rockWins.Length);
+            computerChoice = rockWins[rockWinsindex];
+            Console.WriteLine("Congrats, you won, the computer chose: " + computerChoice + ".");
+
           }
           else if (userChoice == "paper")
           {
-            Console.WriteLine("You win.");
+            string[] paperWins = { "rock", "spock" };
+
+            int paperWinsindex = rnd.Next(paperWins.Length);
+            computerChoice = paperWins[paperWinsindex];
+            Console.WriteLine("Congrats, you won, the computer chose: " + computerChoice + ".");
+
           }
           else if (userChoice == "scissors")
           {
-            Console.WriteLine("You win.");
+            string[] scissorWins = { "water", "lizard" };
+
+            int scissorWinsindex = rnd.Next(scissorWins.Length);
+            computerChoice = scissorWins[scissorWinsindex];
+            Console.WriteLine("Congrats, you won, the computer chose: " + computerChoice + ".");
           }
           else if (userChoice == "lizard")
           {
-            Console.WriteLine("You win.");
+            string[] lizardWins = { "spock", "paper" };
+
+            int lizardWinsindex = rnd.Next(lizardWins.Length);
+            computerChoice = lizardWins[lizardWinsindex];
+            Console.WriteLine("Congrats, you won, the computer chose: " + computerChoice + ".");
           }
           else if (userChoice == "spock")
           {
-            Console.WriteLine("You win.");
+            string[] spockWins = { "rock", "scissors" };
 
+            int spockWinsindex = rnd.Next(spockWins.Length);
+            computerChoice = spockWins[spockWinsindex];
+            Console.WriteLine("Congrats, you won, the computer chose: " + computerChoice + ".");
           }
         }
         Console.WriteLine("Play again? ('yes' or 'no')");
@@ -231,10 +259,3 @@ namespace RPS
     }
   }
 }
-
-
-
-
-
-
-
